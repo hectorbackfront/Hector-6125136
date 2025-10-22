@@ -1,0 +1,58 @@
+class Animal:
+    def _init_(self, nome, idade):
+        self.nome = nome
+        self.idade = idade
+
+    def emitir_som(self):
+        return "O animal emite um som."
+
+    def apresentar(self):
+        return f"Olá, sou {self.nome} e tenho {self.idade} anos."
+
+class Cachorro(Animal):
+    def _init_(self, nome, idade, raca):
+        super()._init_(nome, idade)
+        self.raca = raca
+
+    def emitir_som(self):
+        return "Au! Au!"
+
+class Gato(Animal):
+    def _init_(self, nome, idade, cor_pelo):
+        super()._init_(nome, idade)
+        self.cor_pelo = cor_pelo
+
+    def emitir_som(self):
+        return "Miau!"
+
+class Vaca(Animal):
+    def _init_(self, nome, idade, producao_leite_litros):
+        super()._init_(nome, idade)
+        self.__producao_leite_litros = producao_leite_litros
+
+    def emitir_som(self):
+        return "Muuu!"
+
+    def obter_producao_leite(self):
+        return self.__producao_leite_litros
+
+    def registrar_ordenha(self, litros):
+        self.__producao_leite_litros = litros
+
+if _name_ == "_main_":
+    cachorro = Cachorro("Rex", 3, "Labrador")
+    gato = Gato("Mimi", 5, "Branco")
+    vaca = Vaca("Mimosa", 7, 25.5)
+
+    print(cachorro.apresentar())
+    print(gato.apresentar())
+    print(vaca.apresentar())
+
+    print(cachorro.emitir_som())
+    print(gato.emitir_som())
+    print(vaca.emitir_som())
+
+    print(f"Produção de leite atual: {vaca.obter_producao_leite()} litros")
+    vaca.registrar_ordenha(28.0)
+    print(f"Produção de leite após ordenha: {vaca.obter_producao_leite()} litros")
+  # Hector RA: 6125136
